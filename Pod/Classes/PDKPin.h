@@ -36,6 +36,11 @@ typedef void (^PDKUnauthPinCreationFailure)(NSError *error);
  */
 @property (nonatomic, copy, readonly) NSURL *url;
 
+
+@property (nonatomic, copy, readonly) NSURL *originalLink;
+@property (nonatomic, copy, readonly) NSString* color;
+
+
 /**
  *  The URL to the pin itself
  */

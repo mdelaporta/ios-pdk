@@ -20,6 +20,9 @@
 @property (nonatomic, assign, readwrite) NSUInteger likes;
 @property (nonatomic, assign, readwrite) NSUInteger comments;
 
+@property (nonatomic, copy, readwrite) NSURL* originalLink;
+@property (nonatomic, copy, readwrite) NSString* color;
+
 @end
 
 @implementation PDKPin
@@ -46,6 +49,9 @@ static NSString * const kPDKPinterestWebPinItURLString = @"http://www.pinterest.
         _repins = [self.counts[@"repins"] unsignedIntegerValue];
         _likes = [self.counts[@"likes"] unsignedIntegerValue];
         _comments = [self.counts[@"comments"] unsignedIntegerValue];
+
+        _originalLink = [NSURL URLWithString:dictionary[@"original_link"]];
+        _color = dictionary[@"color"];
     }
     return self;
 }
