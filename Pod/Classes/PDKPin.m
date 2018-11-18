@@ -50,9 +50,17 @@ static NSString * const kPDKPinterestWebPinItURLString = @"http://www.pinterest.
         _likes = [self.counts[@"likes"] unsignedIntegerValue];
         _comments = [self.counts[@"comments"] unsignedIntegerValue];
 
-        _originalLink = [NSURL URLWithString:dictionary[@"original_link"]];
-        _color = dictionary[@"color"];
+	if([dictionary[@"original_link"] isKindOfClass:[NSString class]])
+	{
+        	_originalLink = [NSURL URLWithString:dictionary[@"original_link"]];
+        }
+        
+        if([dictionary[@"color"] isKindOfClass:[NSString class]])
+        {
+        	_color = dictionary[@"color"];
+        }
     }
+
     return self;
 }
 
